@@ -1,0 +1,7 @@
+brew "asdf"
+brew "fzf"
+brew "git"
+brew "exa"
+brew "jq"
+brew "zsh"
+cask "iterm2"
