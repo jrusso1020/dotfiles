@@ -13,11 +13,22 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 export DOTFILES="$HOME/.dotfiles"
 export GPG_TTY=$TTY # https://unix.stackexchange.com/a/608921
 
+# fzf configurations
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+# Uncomment the following line to disable fuzzy completion
+# export DISABLE_FZF_AUTO_COMPLETION="true"
+# Uncomment the following line to disable key bindings (CTRL-T, CTRL-R, ALT-C)
+# export DISABLE_FZF_KEY_BINDINGS="true"
+
+plugins=(
+  zsh-autosuggestions
+  fzf
+)
+
 source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 
 # Return time on long running processes
 REPORTTIME=2
@@ -30,10 +41,10 @@ test -f ~/.zshrc.local && source ~/.zshrc.local
 test -f ~/.secrets && source ~/.secrets
 
 # Load functions
-# for f in $DOTFILES/functions/*; do source $f; done
+for f in $DOTFILES/functions/*; do source $f; done
 
 # # Load aliases
-# for f in $DOTFILES/aliases/*.aliases.*sh; do source $f; done
+for f in $DOTFILES/aliases/*.aliases.*sh; do source $f; done
 
 # # Load all path files
 # for f in $DOTFILES/path/*.path.sh; do source $f; done
@@ -47,9 +58,11 @@ export FZF_DEFAULT_OPTS='--reverse --bind 'ctrl-l:cancel' --height=90% --pointer
 
 export EXA_ICON_SPACING=2
 
-export ASDF_DOWNLOAD_PATH=bin/install
-source /opt/homebrew/opt/asdf/libexec/asdf.sh
-source /opt/homebrew/share/zsh/site-functions
+if [ `uname` = Darwin ]; then
+    export ASDF_DOWNLOAD_PATH=bin/install
+    source /opt/homebrew/opt/asdf/libexec/asdf.sh
+    source /opt/homebrew/share/zsh/site-functions
+fi
 
 # tabtab source for packages
 # uninstall by removing these lines
