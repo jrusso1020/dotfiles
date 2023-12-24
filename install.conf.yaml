@@ -10,6 +10,18 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   -
+    description: apt-get install
+    command: |
+      if [ "$(uname -s)" = "Linux" ]; then
+        sudo apt-get update
+        sudo apt-get install -y $(cat linux/packages.txt)
+
+        . linux/asdf.sh
+
+      fi
+    stdout: true
+    stdin: true
+  -
     command: ./macos/setup-homebrew.sh
     if: '[ `uname` = Darwin ]'
     description: Installing Homebrew and Essential Packages

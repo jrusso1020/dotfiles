@@ -21,6 +21,7 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 # export DISABLE_FZF_KEY_BINDINGS="true"
 
 plugins=(
+  asdf
   zsh-autosuggestions
   fzf
 )
