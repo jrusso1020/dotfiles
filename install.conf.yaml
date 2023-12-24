@@ -38,6 +38,12 @@
     stdin: true
     glob: true
 
+- asdf:
+  - plugin: nodejs
+    global: 20.10.0
+    versions:
+      - 20.10.0
+
 - link:
     ~/.zshrc:
       path: zsh/zshrc.zsh

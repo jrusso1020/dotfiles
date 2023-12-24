@@ -1,6 +1,8 @@
 brew "asdf"
 brew "fzf"
+brew "gawk"
 brew "git"
+brew "gpg"
 brew "exa"
 brew "jq"
 brew "zsh"

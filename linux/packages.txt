@@ -1,2 +1,5 @@
 curl
+dirmngr
+gawk
 git
+gpg 
