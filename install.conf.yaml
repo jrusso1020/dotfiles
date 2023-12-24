@@ -44,6 +44,25 @@
     versions:
       - 20.10.0
 
+- shell:
+  - 
+    description: Install yarn via corepack
+    command: |
+      corepack enable
+      asdf reshim
+    stdout: true
+    stdin: true
+  -
+    description: Install npm packages
+    command: |
+      if [ "$(uname -s)" = "Darwin" ]; then
+        bash -c "< npm/packages.txt xargs npm install -g"
+      elif [ "$(uname -s)" = "Linux" ]; then
+        bash -c "< npm/packages.txt xargs sudo npm install -g"
+      fi
+    stdout: true
+    stdin: true
+
 - link:
     ~/.zshrc:
       path: zsh/zshrc.zsh
