@@ -10,7 +10,7 @@ fi
 export ZSH=~/.oh-my-zsh
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-export DOTFILES="$HOME/.dotfiles"
+export DOTFILES="${BREX_PERSONAL_DOTFILES_PATH:-HOME/.dotfiles}"
 export GPG_TTY=$TTY # https://unix.stackexchange.com/a/608921
 
 # fzf configurations
