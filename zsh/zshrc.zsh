@@ -59,6 +59,8 @@ export FZF_DEFAULT_OPTS='--reverse --bind 'ctrl-l:cancel' --height=90% --pointer
 
 export EXA_ICON_SPACING=2
 
+export PATH="/opt/homebrew/bin:$PATH"
+
 if [ `uname` = Darwin ]; then
     export ASDF_DOWNLOAD_PATH=bin/install
     source /opt/homebrew/opt/asdf/libexec/asdf.sh
@@ -69,8 +71,6 @@ fi
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
-export PATH="/opt/homebrew/bin:$PATH"
-
 # https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
 if type brew &>/dev/null; then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
@@ -78,3 +78,7 @@ if type brew &>/dev/null; then
   autoload -Uz compinit
   compinit
 fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
