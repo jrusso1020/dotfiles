@@ -2,6 +2,11 @@
 #
 # Git helper functions
 
+function gitpurge() {
+  git fetch origin --prune
+  git branch --merged | egrep -v "(^\*|master|main)" | xargs git branch -d
+}
+
 git_current_branch () {
         local ref
         ref=$(command git symbolic-ref --quiet HEAD 2> /dev/null) 
