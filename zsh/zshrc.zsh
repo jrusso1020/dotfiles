@@ -61,12 +61,6 @@ export EXA_ICON_SPACING=2
 
 export PATH="/opt/homebrew/bin:$PATH"
 
-if [ `uname` = Darwin ]; then
-    export ASDF_DOWNLOAD_PATH=bin/install
-    source /opt/homebrew/opt/asdf/libexec/asdf.sh
-    source /opt/homebrew/share/zsh/site-functions
-fi
-
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
@@ -82,3 +76,6 @@ fi
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
