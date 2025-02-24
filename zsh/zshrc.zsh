@@ -57,8 +57,6 @@ fi
 # FZF config and theme
 export FZF_DEFAULT_OPTS='--reverse --bind 'ctrl-l:cancel' --height=90% --pointer='▶''
 
-export EXA_ICON_SPACING=2
-
 export PATH="/opt/homebrew/bin:$PATH"
 
 # tabtab source for packages
